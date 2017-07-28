@@ -23,5 +23,10 @@ def parse(file):
   printi = Group(OUT + DOT + PRINT + COL + string("data") + SEMI)
 
   func = Forward()
-  func << Group(FUNC + COL + CREATE + LPAREN + string("function") + RPAREN + LBRACE + Group(ZeroOrMore(printi))("body") + RBRACE)
+  func << Group(FUNC + COL + CREATE + LPAREN + string("function") + RPAREN + LBRACE + Group(ZeroOrMore(printi))("body") + RBRACE + SEMI)
   
+  func.ignore(cStyleComment)
+  
+  result = func.parseString(glow)
+  
+  return result.asList()
