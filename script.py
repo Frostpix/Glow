@@ -1,6 +1,6 @@
 from pyparsing import *
 
-glow = open("build.glow")
+glow = open("build.gw")
 
 # Functions
 FUNC = Keyword("function")
