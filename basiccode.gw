@@ -1,1 +1,2 @@
+function:create(print)
 out.print:"Welcome to the basic code file!"
