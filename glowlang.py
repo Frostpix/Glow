@@ -20,7 +20,8 @@ def parse(file):
   
   string = QuotedString('"')
   
-  printi = Group(OUT + DOT + PRINT + COL + string("data"))
+  printi = Group(OUT + DOT + PRINT + COL + string("data") + SEMI)
 
   func = Forward()
   func << Group(FUNC + COL + CREATE + LPAREN + string("function") + RPAREN + LBRACE + Group(ZeroOrMore(printi))("body") + RBRACE)
+  
